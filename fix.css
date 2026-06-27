@@ -1,0 +1,103 @@
+/* GitHub Pages fixes for static export */
+:root {
+  --brand-blue: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Original inline CSS accidentally sets display:flex later in the same rule. */
+#loading-overlay {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#mobileMenu {
+  max-width: 100vw;
+  overflow-y: auto;
+  will-change: transform;
+}
+
+#mobileMenu.is-open {
+  transform: translateX(0) !important;
+}
+
+#backdrop.is-open {
+  display: block !important;
+}
+
+.content-seo.is-expanded {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.content-seo.is-expanded #overlay {
+  display: none !important;
+}
+
+#loadMoreContent.is-expanded svg {
+  transform: rotate(180deg);
+}
+
+#goldChartCanvas,
+#modalPriceChart,
+#goldLwNavigatorChartWrap {
+  min-height: 260px;
+}
+
+#goldChartCanvas:empty::before,
+#modalPriceChart:empty::before {
+  content: "Đang tải biểu đồ...";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 260px;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.gold-time-range-btn[aria-pressed="true"] {
+  background: #fff !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, .08);
+}
+
+.gold-time-range-mobile-panel.is-open {
+  display: block !important;
+}
+
+tbody tr.is-filtered-out {
+  display: none !important;
+}
+
+.chart-btn {
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+#modalChartWrapper.is-open {
+  display: flex !important;
+}
+
+@media (max-width: 768px) {
+  .content-seo {
+    height: 420px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
