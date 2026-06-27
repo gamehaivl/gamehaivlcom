@@ -1,23 +1,20 @@
-# GAMEHAIVL GitHub Pages Static
+# GAMEHAIVL GitHub Pages - bản đã fix load
 
-Bộ code này đã được chuyển từ HTML WordPress/Flatsome sang bản tĩnh để chạy ổn trên GitHub Pages.
+## Cách upload đúng
 
-## Cách dùng nhanh
+1. Giải nén file ZIP này.
+2. Upload **toàn bộ file bên trong thư mục** lên root repo GitHub, không upload nguyên thư mục bọc bên ngoài.
+3. Repo phải có `index.html` nằm ngay ở root, cùng cấp với `.nojekyll`, `404.html`, `robots.txt`.
+4. Vào Settings → Pages → Build and deployment → Deploy from branch → chọn `main` và `/root`.
 
-1. Tạo repository mới trên GitHub.
-2. Upload toàn bộ file trong thư mục này lên nhánh `main`.
-3. Vào **Settings → Pages**.
-4. Chọn **Deploy from a branch** → branch `main` → folder `/root`.
-5. Bấm **Save** và mở link GitHub Pages.
+## Bản fix này đã xử lý
 
-## File chính
-
-- `index.html`: Trang chủ tĩnh.
-- `404.html`: Bản dự phòng để GitHub Pages không hiện lỗi trắng.
-- `assets/css/style.css`: CSS đã viết lại, không phụ thuộc WordPress admin bar hay PHP.
-- `assets/js/main.js`: Menu mobile và tìm kiếm nội bộ theo tên/danh mục.
-- `.nojekyll`: Tránh GitHub Pages xử lý Jekyll gây lỗi asset.
+- CSS và JS được nhúng trực tiếp trong `index.html`, nên không còn lỗi trắng giao diện do sai đường dẫn asset.
+- Có `.nojekyll` để GitHub Pages không xử lý nhầm thư mục asset.
+- Có `404.html` giống trang chủ để hạn chế lỗi khi vào URL phụ.
+- Có fallback ảnh nếu ảnh từ domain gốc không tải được.
+- Không phụ thuộc WordPress, PHP, wp-json, Flatsome JS, jQuery hoặc admin bar.
 
 ## Lưu ý
 
-Ảnh trong code đang dùng link gốc từ `https://gamehaivl.com/wp-content/...`. Nếu muốn độc lập 100%, hãy tải ảnh về thư mục `assets/images/` rồi sửa lại đường dẫn ảnh trong `index.html`.
+Các nút bài viết vẫn trỏ về domain gốc `https://gamehaivl.com/...`. Nếu muốn biến GitHub Pages thành site độc lập hoàn toàn, cần tạo thêm từng file HTML cho từng bài viết.
